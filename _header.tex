@@ -1,0 +1,24 @@
+%====================
+% Header: Contact
+%====================
+
+\RequirePackage{fancyhdr}
+\fancypagestyle{fancy}{%\fancyhf{}
+
+\lhead{
+{\HUGE \skills \name} \\ \vspace{1em}%
+{\color{highlight} \Large{\role}}
+}
+\rhead{
+\vfill
+\contactinfo
+}
+
+\renewcommand{\headrulewidth}{1pt}% 2pt header rule
+\renewcommand{\headrule}{\hbox to\headwidth{%
+\color{highlight}\leaders\hrule height \headrulewidth\hfill}}
+}
+\pagestyle{fancy}
+
+\setlength{\headheight}{90pt}
+\setlength{\headsep}{5pt}

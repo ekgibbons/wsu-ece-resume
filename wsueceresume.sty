@@ -1,0 +1,114 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{wsueceresume}[2022.01.21 resume package]
+
+% Assuming using "article" document class and letter sized paper.
+% FONT STUFF
+
+\RequirePackage[T1]{fontenc} %  Font encoding https://texfaq.org/FAQ-why-inp-font
+\RequirePackage[default,semibold]{sourcesanspro}
+\RequirePackage[10pt]{moresize}
+\usepackage{anyfontsize}
+\RequirePackage{csquotes}
+
+% MARGINS AND SPACING
+\RequirePackage[margin=.5in, top=.5in]{geometry} % Set Margins
+\raggedright % left align no indent
+\raggedbottom % top align no indent
+
+% COLOR
+\RequirePackage{xcolor}
+\definecolor{highlight}{RGB}{61, 90, 128} % CHANGE THIS TO YOUR FAV COLOR https://g.co/kgs/aoqdi7
+
+% LINKS
+\RequirePackage{hyperref}
+\hypersetup{colorlinks=true,urlcolor=highlight}
+
+% BULLET POINTS
+\RequirePackage[inline]{enumitem}
+\setlength{\tabcolsep}{0in}
+
+% SECTION FORMATTING 
+\RequirePackage[nostruts]{titlesec}
+\titlespacing*{\section}{0em}{0.5em}{0em}
+\titleformat{\section}{\color{highlight} \scshape \raggedright \large}{}{0em}{}[\vspace{-0.75em}\hrulefill\vspace{0.5em}]
+% SUBSECTION FORMATTING
+\titlespacing*{\subsection}{0em}{0em}{0em}
+\titleformat{\subsection}{\bfseries}{}{0em}{}[]
+
+% BOLD COMMAND
+\newcommand{\skills}[1]{ {\bfseries #1}}
+
+
+
+% SUBTEXT
+\newcommand{\subtext}[1]{\textit{#1}\par\vspace{-.75em}}
+
+% tighter spacing than itemize
+\setlist[itemize]{align=parleft,left=0pt..1em}
+\newenvironment{zitemize}{
+\begin{itemize} \itemsep 0pt \parskip 0pt \parsep 1pt}
+{\end{itemize}\vspace{-.5em}}
+
+% NO PAGE NUMBER
+\pagenumbering{gobble}
+
+% SUBFILES IMPORTING
+\RequirePackage{standalone}
+
+% FOR TEMPLATE FILLER
+\RequirePackage[english]{babel}
+\RequirePackage{blindtext}% Filler Text
+
+% FOR THE HEADER STUFF
+\usepackage{fontawesome}
+
+% Render a text with its symbol
+% Usage; \socialtext{<icon>}{<label>}
+\newcommand{\socialtext}[2]{\mbox{\textcolor{black}{#1}\hspace{0.5em}#2\hspace{1em}}}
+
+% Render a link with its symbol
+% Usage; \sociallink{<icon>}{<label>}
+\newcommand{\sociallink}[3]{\mbox{\textcolor{black}{#1}
+    \hspace{0.5em}\href{#2}{#3}\hspace{1em}}}
+
+% Render author's address
+% Usage: \address{<address>}
+\newcommand*{\location}[1]{\socialtext{\faMapMarker}{#1}}
+
+% Render author's infos
+% Usage: \infos{<infos>}
+\newcommand*{\info}[1]{\socialtext{\faInfo}{#1}}
+
+% Render author's infos
+% Usage: \infos{<infos>}
+\newcommand*{\phone}[1]{\socialtext{\faMobilePhone}{#1}}
+
+% Render author's infos
+% Usage: \infos{<infos>}
+\newcommand*{\email}[1]{\sociallink{\faEnvelopeO}
+  {mailto:#1}{#1}}
+
+% Render author's linked-in (optional)
+% Usage: \linkedin{<linked-in-nick>}
+\newcommand*{\linkedin}[1]{\sociallink{\faLinkedin}
+  {http://www.linkedin.com/in/#1}{linkedin.com/in/#1}}
+
+% Render author's linked-in (optional)
+% Usage: \linkedin{<linked-in-nick>}
+\newcommand*{\github}[1]{\sociallink{\faGithub}
+  {http://www.github.com/#1}{github.com/#1}}
+
+% Render author's personal website (optional)
+% Usage: \personalLink{<website-without-http://www.>}
+\newcommand*{\www}[1]{\sociallink{\faLink}
+  {http://#1}{#1}}
+
+
+% CV skills stuff
+\usepackage{tikz}
+\colorlet{body}{black!80!white}
+\newcommand{\cvtag}[1]{%
+  \tikz[baseline]\node[anchor=base,draw=body!30,
+  rounded corners,inner xsep=1ex,inner ysep =0.75ex,
+  text height=1.5ex,text depth=.25ex]{#1};
+}

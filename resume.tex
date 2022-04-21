@@ -1,0 +1,60 @@
+%====================
+% File:         resume.tex
+% Editor:       https://github.com/ekgibbons 
+%               https://www.linkedin.com/in/ekgibbons/
+% Last Updated: 2022.01.21
+% Notes:        All formatting is done in wsueceresume.sty
+%               No need to touch that file. 
+%               All actual content is in the sections/ folder.
+%====================
+
+
+\documentclass[letter,10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{wsueceresume}
+
+
+%====================
+% CONTACT INFORMATION
+%====================
+\def\name{Eric Gibbons} % NAME HERE
+\def\role{Signal processing engineer} % JOB TITLE
+
+% Rearrange these categories as needed.
+% Exclude the sections that aren't needed.
+\def\contactinfo{
+  \github{ekgibbons}
+  \linkedin{ekgibbons}\\
+  \email{youremail@mail.weber.edu}
+  \phone{(801) 626-6200}\\
+  \www{faculty.weber.edu/ericgibbons}
+  \location{City, State}
+  \info{U.S. Citizen}
+}
+
+
+\input{_header}
+\begin{document}
+\input{sections/objective}
+
+\section{Education}
+\input{sections/education}
+
+\section{Skills}
+\input{sections/skills}
+
+\section{Technical Experience}
+\input{sections/experience}
+
+\section{Awards}
+\input{sections/awards}
+
+
+% make a newpage wherever it is a clean break
+% \newpage
+
+\section{Activities}
+\input{sections/activities}
+
+
+\end{document}
