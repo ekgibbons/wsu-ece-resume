@@ -5,14 +5,8 @@
 \RequirePackage{fancyhdr}
 \fancypagestyle{fancy}{%\fancyhf{}
 
-\lhead{
-{\HUGE \skills \name} \\ \vspace{1em}%
-{\color{highlight} \Large{\role}}
-}
-\rhead{
-\vfill
-\contactinfo
-}
+\fancyhead[L]{\textbf{\hspace{-.25em}\HUGE{\name}\\\vspace{.25em}{\color{highlight}\Large{\role}}}}
+\fancyhead[R]{\vfill\contactinfo}
 
 \renewcommand{\headrulewidth}{1pt}% 2pt header rule
 \renewcommand{\headrule}{\hbox to\headwidth{%
