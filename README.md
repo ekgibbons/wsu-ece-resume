@@ -6,3 +6,4 @@ You can build this from commandline using the included ```Makefile```.  To compi
 ```
 $ make
 ```
+Alternatively you can compress this to a ```.zip``` and upload to Overleaf for easier editing and compilation.
